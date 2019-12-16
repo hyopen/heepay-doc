@@ -1,0 +1,15 @@
+{
+  "name": "heepaydoc",
+  "version": "1.0.0",
+  "description": "> 汇付宝开发者文档",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "node_modules/.bin/serve docs -l 8000"
+  },
+  "author": "zyy",
+  "devDependencies": {
+    "serve": "^11.0.1"
+  }
+}
