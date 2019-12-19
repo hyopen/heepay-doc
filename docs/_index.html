@@ -1,13 +1,66 @@
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
         <link rel="stylesheet" href="./styles/pagebase.css">
+        <link rel="stylesheet" href="./styles/index.css">
+        
     </head>
     <body>
-        <div id="hybody">
+        <!--<div id="hybody">
         首页，可以在index.html中禁用：coverpage 注释即可
         <br/>
             <a href="/#/readme">文档页</a>
             <a href="/pages/test.html">测试页</a>
-        </dov>
+        </div> -->
+        <div class="header">
+            <div class="w">
+                <a href=""><h1 class="logo"><img src="../../images/heepay.png"></h1></a>
+                <ul>
+                    <li ><a href="/#/" class="index active">首页</a></li>
+                    <li ><a href="/#/readme" class="doc">开发文档</a></li>
+                    <li ><a href="" class="demo">体验中心</a></li>
+                    <li ><a href="" class="resourceCenter">资源中心</a></li>
+                    <li ><a href="" class="problem">常见问题</a></li>
+                </ul>
+                <!-- 手机下菜单按钮-->
+                <div class="men-sidebar" id="menSide" onclick="showMenu()">
+                    <div class="men-sidebar-button"><span></span><span></span><span></span></div>
+                    <!--按钮推拉 -->
+                    <div class="men-sidebar-box" id="menSidebarBox">
+                        <a href="/#/" class="index active">首页</a>
+                        <a href="/#/readme" class="doc">开发文档</a>
+                        <a href="" class="demo">体验中心</a>
+                        <a href="" class="resourceCenter">资源中心</a>
+                        <a href="" class="problem">常见问题</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- header end -->
+        <div class="centre">
+            <div class="w">
+                <h3>简单接入  快速部署</h3>
+                <p>接入汇元 SDK，快速部署您的网站支付功能。微信、支付宝、银联刷卡支付轻松拥有</p>
+                <div class="btn-box">
+                    <a href="/#/readme" class="fl btn btn_black">开发文档</a>
+                    <a href="/index.php?s=/home/item/show/item_id/25" class="fr btn btn_default">资源中心</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- foot begin -->
+        <div class="foot">
+            <div class="w">
+                <p>&copy; 2008  汇元银通（北京）在线支付技术有限公司，保留所有权利</p>
+                <span>京ICP备09070617号-3</span>
+            </div>
+        
+        </div>   
+        
+        
     </body>
 </html>
