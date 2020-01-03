@@ -1,0 +1,268 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6  ,pre,form,fieldset,input,textarea,p,blockquote,th,td,iframe{margin:0 auto;padding:0;font-size: 14px;}
+o,li{list-style:none;}
+fieldset,img,iframe{border:0;display: block;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+a{text-decoration:none}
+html,body{
+    font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    font-size:12px;
+    height: 100%;  
+}
+body{
+    overflow-y: scroll;
+}
+.w{
+    max-width:1000px;
+    min-width: 300px;
+    margin:0 auto;
+}
+input:focus{
+    border:none;
+    outline:none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+
+/*按钮*/
+.btn{
+    display: block;
+    font-size: 14px;
+    width: 160px;
+    border-radius: 4px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    text-align: center;
+
+}
+.btn_default{
+    background: #fff;
+    color: #24282C;
+    border: 1px solid #C7C7CD;
+}
+.btn_black{
+    background: #24282C;
+    color: #fff !important;
+    border: 1px solid #24282C;
+}
+.btn_blue{
+    background: #00C1DE;
+    color: #fff;
+    border: 1px solid #00C1DE;
+}
+
+/*字体颜色*/
+.orange{
+    color:#FF6600;
+}
+.gray{
+    color:#898989;
+}
+
+/*头部*/
+.header{
+    width:100%;
+    height:75px;
+    margin:0 auto;
+    background: #24282c;
+
+}
+    .header .w{
+        position: relative;
+        height: 75px;
+    }
+    .header .logo{
+        width:162.5px;
+        height:25px;
+        position: absolute;
+        left:0;
+        top:50%;
+        margin-top:-13px;
+    }
+        .header .logo img{
+            width:100%;
+            height:100%;
+        }
+    .header ul{
+        float:right;
+        width:auto;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top:-13px !important;
+    }
+        .header ul li{
+            display:inline-block;
+            float:left;
+            padding-left:25px;
+            height: 25px;
+        }
+            .header ul li a {
+                color:#fff;
+                font-size:14px;
+                height:25px;
+                display:block;
+            }
+                .header ul li a.active{
+                    border-bottom:2px solid #fff;
+                }
+    .centre{
+            width: 100%;
+            height: auto;
+        }
+        
+            
+
+/*底部版权*/
+
+.foot{
+    width:100%;
+    height:75px;
+    background: #fff;
+    border-top: 1px solid #C7C7CD;
+    line-height:75px;
+    color: #000000;
+}
+
+.foot span{
+    text-align:right;
+    display:inline-block;
+    float:right;
+}
+    .foot span i{
+        color:#c7c7c7;
+        padding: 0 9px;
+    }
+.foot p{
+    text-align:left;
+    float:left;
+    margin: 0 auto !important;
+    line-height: inherit !important;
+}
+.foot{
+    position: fixed;
+    bottom:0;
+    left: 0;
+}
+
+ /* 去掉sidebar-toggle */
+ .sidebar-toggle{
+     display:none;
+ }
+
+ .men-sidebar-box{
+    display: none;
+}
+  
+/*手机端兼容*/
+@media screen and (min-width:320px) and (max-width:700px){
+    /* 手机下菜单按钮 */
+    .men-sidebar{
+        display: block;
+        float: right;
+        margin-top: 30px;
+    }
+    .men-sidebar-button span {
+        background-color: var(--theme-color,#42b983);
+        display: block;
+        margin-bottom: 4px;
+        width: 16px;
+        height: 2px;
+        position: relative;
+        z-index: 999;
+    }
+    .men-sidebar-box{
+		display:block;
+        z-index: 998;
+        border-left: 1px solid rgba(0,0,0,.07);
+        overflow-y: auto;
+        padding: 40px 0 0;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        transition: transform .25s ease-out;
+        width: 300px;
+        z-index: 3;
+        background: #fff;
+        right: -300px;
+        transition: transform .25s ease-out;
+     }
+     .men-sidebar-box a{
+         display: block;
+         width: calc(100% - 60px);
+         padding:0 30px;
+         line-height: 40px;
+     }
+     .men-sidebar-box.active{
+        transform: translateX(-300px);
+     }
+
+    .w{
+        width:90%;
+        margin:0 auto;
+    }
+        .header ul{
+            width:100%;
+            float:left;
+            margin-top:15px;
+            display: none;
+        }
+            .header ul li{
+                padding-left: 0;
+                padding-right:5%;
+            }
+    
+    .btn{
+        width: 45%;
+    }
+    
+    
+    .foot{
+        line-height:30px;
+        text-align:center;
+        padding-top:10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        height: auto;
+    }
+    .foot span,.foot p{
+        text-align:center;
+        float:none;
+    }
+    .data-detail{
+        width:auto;
+    }
+    
+}
+
+
+
+
+@media screen and (min-width:700px) and (max-width:990px){
+    .w{
+        width:90%;
+        margin:0 auto;
+    }
+           
+    .foot{
+        line-height:30px;
+        text-align:center;
+        padding-top:10px;
+        height: 75px;
+        border-top: 1px solid #C7C7CD;
+    }
+    .foot span,.foot p{
+        text-align:center;
+        float:none;
+    }
+    .data-detail{
+        width:auto;
+    }
+}

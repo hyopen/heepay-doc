@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>体验中心</title>
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/experience.css">
+        <script src="../scripts/index.js"></script>
+        <script src="../scripts/jquery-3.1.1.min.js"></script>
+    </head>
+    <body>
+        <!-- header begin -->
+        <div class="header">
+            <div class="w">
+                <a href=""><h1 class="logo"><img src="../../images/heepay.png"></h1></a>
+                <ul>
+                    <li ><a href="/#/" class="index ">首页</a></li>
+                    <li ><a href="/#/readme" class="doc">开发文档</a></li>
+                    <li ><a href="/pages/experience.html" class="demo active">体验中心</a></li>
+                    <li ><a href="" class="resourceCenter">资源中心</a></li>
+                    <li ><a href="" class="problem">常见问题</a></li>
+                </ul>
+                <!-- 手机下菜单按钮-->
+                <div class="men-sidebar" id="menSide" onclick="showMenu()">
+                    <div class="men-sidebar-button"><span></span><span></span><span></span></div>
+                    <!--按钮推拉 -->
+                    <div class="men-sidebar-box" id="menSidebarBox">
+                        <a href="/#/" class="index active">首页</a>
+                        <a href="/#/readme" class="doc">开发文档</a>
+                        <a href="" class="demo">体验中心</a>
+                        <a href="" class="resourceCenter">资源中心</a>
+                        <a href="" class="problem">常见问题</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- header end -->
+        <div class="centre">
+            <div class="wrap">
+                <!-- 标题 -->
+                <div class="headline">
+                    <p>选择场景进行体验</p>
+                </div>
+                <div class="listbox">
+                    <a href="{:U('Home/Index/heemoney_experience_pc')}" class="list-block" id="list-block" target="_blank">
+                        <img src="../images/demo_01.png" alt="PC网页支付">                       
+                        <h3>PC网页支付</h3>                        
+                        <p>立即体验</p>
+                    </a>                    
+                    <a href="javaScript:;" class="list-block" id="list-block">
+                        <img src="../images/demo_03.png" alt="H5支付" class="demo_yes">
+                        <img src="../images/demo_11.png" style="width: 150px;height: 150px;margin: 37px auto 0 auto;" class="demo_no">
+                        <h3 class="demo_yes">H5支付</h3>
+                    </a>
+                    <a href="javaScript:;" class="list-block" id="list-block">
+                        <img src="../images/demo_02.png" alt="移动APP支付" class="demo_yes">
+                        <img src="../images/demo_logo_no.png" class="demo_no">
+                        <h3 class="demo_yes">移动APP支付</h3>
+                        <h3 class="demo_no" >暂未推出，敬请期待</h3>
+                        <p>查看文档</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="foot">
+            <div class="w">
+                <p>&copy; 2008  汇元银通（北京）在线支付技术有限公司，保留所有权利</p>
+                <span>京ICP备09070617号-3</span>
+            </div>
+        </div>  
+        <script>
+            $(function () {
+                $(".listbox a:first").hover(function () {
+                    $(this).addClass("active");
+                }, function () {
+                    $(this).removeClass("active");
+                });
+                $(".listbox").children().hover(function () {
+                    $(this).find('.demo_yes').hide();
+                    $(this).find('.demo_no').show();
+                }, function () {
+                    $(this).find('.demo_yes').show();
+                    $(this).find('.demo_no').hide();
+                });
+                sessionStorage.clear();
+            })
+        </script> 
+    </body>
+</html>
