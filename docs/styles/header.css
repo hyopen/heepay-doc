@@ -192,12 +192,14 @@ input:focus{
         background: #fff;
         right: -300px;
         transition: transform .25s ease-out;
+        
      }
      .men-sidebar-box a{
          display: block;
          width: calc(100% - 60px);
          padding:0 30px;
          line-height: 40px;
+         color:#000 !important;
      }
      .men-sidebar-box.active{
         transform: translateX(-300px);

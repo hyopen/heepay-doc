@@ -13,13 +13,14 @@
 
   <body>
     <div id="app">加载中</div>
+    <div>wode </div>
     <script>
       window.$docsify = {
         name: '汇付宝', //文档标题，显示在侧边栏顶部
         nameLink: '/', //点击文档标题后跳转的链接地址
         //repo: '',  仓库地址
         maxLevel: 4, //默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级
-        loadNavbar: '_navbar.md', //自定义导航
+        loadNavbar: '', //自定义导航_navbar.md
         loadSidebar: '_sidebar.md', //自定义边栏
         subMaxLevel: 2, //自定义侧边栏后默认不会再生成目录，你也可以通过设置生成目录的最大层级开启这个功能。
         auto2top: true, //切换页面后自动切换到页面顶部
@@ -59,6 +60,7 @@
     <script src="./scripts/prism-csharp.min.js"></script>
     <script src="./scripts/prism-java.min.js"></script>
     <script src="./scripts/index.js"></script>
+        <script src="./scripts/jquery-3.1.1.min.js"></script>
   </body>
 
 </html>

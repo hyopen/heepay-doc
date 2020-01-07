@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>体验中心-支付失败</title>
+        <link rel="stylesheet" href="__PUBLIC__/hynet/css/common.css">
+        <link REL = "Shortcut Icon" href={$Think.lang.FAVICON}>
+        <link rel="stylesheet" href="__PUBLIC__/hynet/css/css.css">	
+        <script src="__PUBLIC__/hynet/js/jquery-1.8.3.min.js"></script>
+        <script src="__PUBLIC__/hynet/js/common.js"></script>
+    </head>
+    <body>
+        <!-- header begin -->
+        <div class="header">
+            <div class="w">
+                <a href="{:U('Home/Index/index')}"><h1 class="logo"><img src="__PUBLIC__/hynet/images/heemoney.png"></h1></a>
+                <ul>
+                    <li ><a href="{:U('Home/Index/index')}" class="index">{$Think.lang.first_index}</a></li>
+                    <li ><a href="{:U('Home/Index/doc')}" class="doc">{$Think.lang.doc}</a></li>
+                    <li ><a href="{:U('Home/Index/experience')}" class="demo active">{$Think.lang.experience}</a></li>
+                    <li ><a href="{:U('Home/item/show/item_id/45/page_id/476')}" class="resourceCenter">{$Think.lang.source_center}</a></li>
+                    <!--<li ><a href="{:U('Home/Index/answer_question')}" class="system active">{$Think.lang.answer_question}</a></li>-->
+                    <li ><a href="{:U('Home/item/show/item_id/30/page_id/477')}" class="problem">{$Think.lang.faq}</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- header end -->
+        <div class="centre">
+            <div class="wrap">
+                <!-- 标题 -->
+                <div class="headline">
+                    <p>PC网页支付体验——支付结果</p>
+                </div>
+                <div class="pay-result pay-error">
+                    <div class="title"><i class="fl"><img src="__PUBLIC__/hynet/images/pay_sesult2.png"></i>支付未完成</div>
+                    <div class="result-text">
+                        <p>商品名称：<span id="hyName"></span></p>
+                        <p>收货地址：北京市海淀区中关村SOHO16层</p>
+                        <p>实付金额：<span class="orange" id="hyPayPrice"></span></p>
+                        <p>收款方：汇元网科技</p>
+                        <p>订单编号：<span id="hyOrderNum"></span></p>
+                    </div>
+
+                    <div class="btnbox">
+                        <a href="{:U('Home/Index/heemoney_experience_pc')}" class="fl btn btn_blue">再次体验</a>
+                        <a href="{:U('Home/Index/heemoney_experience')}" class="fr btn btn_default">返回体验首页</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- foot begin -->
+        <include file="Common/heemoney_footer"/>
+        <!-- foot end --> 
+        
+        <script>
+            $(function () {
+                $("#hyName").text(sessionStorage["hyName"]);               
+                $("#hyPayPrice").text("￥"+sessionStorage["hyPayPrice"]);   
+                $("#hyOrderNum").text(sessionStorage["hyOrderNum"]);                  
+            });
+        </script>
+        <include file="Common/mta"/>
+    </body>
+</html>

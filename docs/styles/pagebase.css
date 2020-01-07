@@ -19,5 +19,4 @@ section.cover.show > div.cover-main {
 
 section + main {
   color: red;
-  background-color: blueviolet;
 }

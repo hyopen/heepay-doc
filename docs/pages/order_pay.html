@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>体验中心-订单提交</title>
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/experience.css">
+        <script src="../scripts/index.js"></script>
+        <script src="../scripts/jquery-3.1.1.min.js"></script>
+        
+    </head>
+    <body>
+        <!-- header begin -->
+        <div class="header">
+            <div class="w">
+                <a href=""><h1 class="logo"><img src="../../images/heepay.png"></h1></a>
+                <ul>
+                    <li ><a href="/#/" class="index ">首页</a></li>
+                    <li ><a href="/#/readme" class="doc">开发文档</a></li>
+                    <li ><a href="/pages/experience.html" class="demo active">体验中心</a></li>
+                    <li ><a href="" class="resourceCenter">资源中心</a></li>
+                    <li ><a href="" class="problem">常见问题</a></li>
+                </ul>
+                <!-- 手机下菜单按钮-->
+                <div class="men-sidebar" id="menSide" onclick="showMenu()">
+                    <div class="men-sidebar-button"><span></span><span></span><span></span></div>
+                    <!--按钮推拉 -->
+                    <div class="men-sidebar-box" id="menSidebarBox">
+                        <a href="/#/" class="index active">首页</a>
+                        <a href="/#/readme" class="doc">开发文档</a>
+                        <a href="" class="demo">体验中心</a>
+                        <a href="" class="resourceCenter">资源中心</a>
+                        <a href="" class="problem">常见问题</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- header end -->
+        <div class="centre">
+            <div class="w">
+                <!-- 标题 -->
+                <div class="headline">
+                    <a href="order_submit.html" class="fl">上一步 </a><p class="fl">核对物品信息</p>
+                </div>
+                <div class="orderform">
+                    <div class="order-schedule">
+                        <dl class="fl active">
+                            <dt>订单提交</dt>
+                            <dd><span>1</span><i></i></dd>
+                        </dl>
+                        <dl class="fl active">
+                            <dt>选择支付方式</dt>
+                            <dd><span>2</span><i></i></dd>
+                        </dl>
+                        <dl class="fl">
+                            <dt>完成付款</dt>
+                            <dd><span>3</span><i></i></dd>
+                        </dl>
+                    </div>
+                    <div class="paybox">
+                        <dl class="pay-msg">
+                            <dt>支付金额：<span id="hyPayPrice"></span>元</dt>
+                            <dd class="fl mr30">收款方：汇元网科技</dd>
+                            <dd class="fl">订单编号：<span id="hyOrderNum"></span></dd>
+                            <dd class="fr">请在24小时内完成付款，否则订单会自动取消。</dd>
+                        </dl>
+                        <div class="pay-list">
+                            <p>请选择付款方式</p>
+                            <ul>
+                                <li class="active" data-paytype="ALI_QRCODE"><img src="../images/pay_01.png" alt="支付宝"/></li>
+                                <li data-paytype="WX_NATIVE"><img src="../images/pay_02.png" alt="微信"/></li>
+                                <li data-paytype="BANK_CYBER"><img src="../images/pay_10.png" alt="网银"/></li>                                                             
+                                <li data-paytype="QQ_QRCODE"><img src="../images/pay_05.png" alt="QQ钱包"/></li>
+                                <li data-paytype="BANK_QRCODE"><img src="../images/pay_06.png" alt="银行卡扫码"/></li> 
+                                <li data-paytype="BANK_WAP" ><img src="../images/pay_03.png" alt="银联"/></li>  
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="fr btnbox">
+                        <p class="fl">点击支付，即表示阅读并同意《汇元DEMO商城购买协议》</p>
+                        <!--<a href="{:U('Home/Index/order_pay')}" class="fl btn btn_blue submit_order" >立即支付</a>-->
+                        <a onclick="getPay()" class="fl btn btn_blue submit_order" >立即支付</a>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 弹出层 -->
+        <div class="shade" style="display:none"></div>
+        <div class="pop-up" style="display:none">
+            <h3 class="title">确认支付</h3>
+            <div class="pop-up-con">
+                <h3>请在打开的页面中完成支付操作！</h3>
+                <p>支付完成前请不要关闭此窗口</p>
+                <div class="btnbox">
+                    <a onclick="getQuery()" class="fl btn btn_blue">已完成支付</a>
+                    <a onclick="getPayType()" class="fr btn btn_default change_submit">更换支付方式</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="foot">
+            <div class="w">
+                <p>&copy; 2008  汇元银通（北京）在线支付技术有限公司，保留所有权利</p>
+                <span>京ICP备09070617号-3</span>
+            </div>
+        </div>  
+
+        <script>
+            $(function () {
+                $(".pay-list ul li").click(function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                });
+                $("#hyPayPrice").text(sessionStorage["hyPayPrice"]);  
+                getPayType();               
+            })
+            jQuery(document).ready(function ($) {
+                $('.submit_order').click(function () {
+                    $('.shade').fadeIn();
+                    $('.pop-up').slideDown();
+                })
+                $('.change_submit').click(function () {
+                    $('.shade').fadeOut();
+                    $('.pop-up').slideUp();
+                })
+            })
+            
+            function getPayType(){
+                var date=new Date();
+                $("#hyOrderNum").text("HY"+date.getFullYear()+(date.getMonth()+1)+date.getDate()+date.getHours()+date.getMinutes()+date.getSeconds());
+            }
+            
+            function getPay(){
+               var payType=$("li.active").data("paytype");
+               var payPrice=$("#hyPayPrice").text();
+               var payOrderNum= $("#hyOrderNum").text();    
+               sessionStorage["hyOrderNum"]=payOrderNum;
+               window.open("http://dev.heepay.com/Application/Home/View/Index/heemoney_submit_order.php?payType="+payType+"&payPrice="+payPrice+"&payOrderNum="+payOrderNum+"&payName="+sessionStorage["hyName"]+"&payNameNum="+sessionStorage["hyNum"]); 
+            }
+            
+            function getQuery(){
+               var payOrderNum= $("#hyOrderNum").text();          
+               window.open("http://dev.heepay.com/Application/Home/View/Index/heemoney_query.php?&payOrderNum="+payOrderNum);     
+            }
+        </script>
+    </body>
+</html>

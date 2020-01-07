@@ -40,23 +40,28 @@
         </div>
         <!-- header end -->
         <div class="centre">
-            <div class="wrap">
+            <div class="w">
                 <!-- 标题 -->
                 <div class="headline">
                     <p>选择场景进行体验</p>
                 </div>
                 <div class="listbox">
-                    <a href="{:U('Home/Index/heemoney_experience_pc')}" class="list-block" id="list-block" target="_blank">
+                    <a href="experience_pc.html" class="list-block pc" target="_blank">
                         <img src="../images/demo_01.png" alt="PC网页支付">                       
                         <h3>PC网页支付</h3>                        
                         <p>立即体验</p>
                     </a>                    
-                    <a href="javaScript:;" class="list-block" id="list-block">
+                    <a href="javaScript:;" class="list-block pc" >
                         <img src="../images/demo_03.png" alt="H5支付" class="demo_yes">
                         <img src="../images/demo_11.png" style="width: 150px;height: 150px;margin: 37px auto 0 auto;" class="demo_no">
                         <h3 class="demo_yes">H5支付</h3>
                     </a>
-                    <a href="javaScript:;" class="list-block" id="list-block">
+                    <a href="https://pay.heepay.com/MSite/Cashier/Demo.aspx" class="list-block active h5">
+                        <img src="../images/demo_03.png" alt="H5支付" class="demo_yes">
+                        <h3 class="demo_yes">H5支付</h3>
+                        <p>立即体验</p>
+                    </a>
+                    <a href="javaScript:;" class="list-block">
                         <img src="../images/demo_02.png" alt="移动APP支付" class="demo_yes">
                         <img src="../images/demo_logo_no.png" class="demo_no">
                         <h3 class="demo_yes">移动APP支付</h3>
@@ -88,7 +93,19 @@
                     $(this).find('.demo_no').hide();
                 });
                 sessionStorage.clear();
+                browserRedirect() 
             })
+            function browserRedirect() {
+                var sUserAgent = navigator.userAgent.toLowerCase();
+                if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+                    $(".pc").hide();
+                    $(".h5").show();
+                } else {
+                //跳转pc端页面
+                    $(".pc").show();
+                    $(".h5").hide();
+                }
+            }
         </script> 
     </body>
 </html>
