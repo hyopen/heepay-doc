@@ -1,0 +1,73 @@
+
+html,body{
+    background:url(../../images/BG.jpg) 0 0 no-repeat;
+}
+.centre .w{
+    position: absolute;
+    left:50%;
+    top:50%;        
+    height: 300px;
+    margin-top:-150px;
+    margin-left:-500px;
+    text-align: center;
+}
+.centre h3{
+    font-size: 56px;
+    color: #000000;
+}
+.centre{
+    height: calc(100vh - 300px);
+    position: relative;
+    margin: 0 auto;
+}
+.centre p{
+    max-width: 894px;
+    min-width: 300px;
+    padding-top: 4%;
+    font-size: 28px;
+    color: #000000;
+    line-height: 40px !important;
+    margin: 0;
+}
+.centre .btn-box{
+    width: 400px;
+    margin: 0 auto;
+    height: auto;
+    padding-top:5%;
+    overflow: hidden;
+}
+
+  
+/*手机端兼容*/
+@media screen and (min-width:320px) and (max-width:700px){
+    
+    .centre h3{
+        font-size: 27px;
+        font-weight: bold;
+    }
+    .centre .w{
+        margin:0 auto;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%);
+        -moz-transform: translate(-50%,-50%);
+        -ms-transform: translate(-50%,-50%);
+        -o-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+    .btn{
+        width: 45%;
+    }
+    .centre p{
+        font-size: 14px;
+        line-height: 1.7em;
+        width: 100%;
+    }
+    .centre .btn-box{
+        width: auto;
+    }
+
+    .data-detail{
+        width:auto;
+    }
+    
+}

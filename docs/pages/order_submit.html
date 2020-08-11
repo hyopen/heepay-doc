@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>体验中心-订单提交</title>
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/experience.css">
+        <script src="../scripts/index.js"></script>
+        <script src="../scripts/jquery-3.1.1.min.js"></script>
+        
+    </head>
+    <body>
+        <!-- header begin -->
+        <div class="header">
+            <div class="w">
+                <a href=""><h1 class="logo"><img src="../../images/heepay.png"></h1></a>
+                <ul>
+                    <li ><a href="/#/" class="index ">首页</a></li>
+                    <li ><a href="/#/readme" class="doc">开发文档</a></li>
+                    <li ><a href="/pages/experience.html" class="demo active">体验中心</a></li>
+                    <li ><a href="" class="resourceCenter">资源中心</a></li>
+                    <li ><a href="" class="problem">常见问题</a></li>
+                </ul>
+                <!-- 手机下菜单按钮-->
+                <div class="men-sidebar" id="menSide" onclick="showMenu()">
+                    <div class="men-sidebar-button"><span></span><span></span><span></span></div>
+                    <!--按钮推拉 -->
+                    <div class="men-sidebar-box" id="menSidebarBox">
+                        <a href="/#/" class="index active">首页</a>
+                        <a href="/#/readme" class="doc">开发文档</a>
+                        <a href="" class="demo">体验中心</a>
+                        <a href="" class="resourceCenter">资源中心</a>
+                        <a href="" class="problem">常见问题</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- header end -->
+        <div class="centre">
+            <div class="w">
+                <!-- 标题 -->
+                <div class="headline">
+                    <a href="experience_pc.html" class="fl">上一步 </a><p class="fl">核对物品信息</p>
+                </div>
+                <div class="orderform">
+                    <div class="order-schedule">
+                        <dl class="fl active">
+                            <dt>订单提交</dt>
+                            <dd><span>1</span><i></i></dd>
+                        </dl>
+                        <dl class="fl">
+                            <dt>选择支付方式</dt>
+                            <dd><span>2</span><i></i></dd>
+                        </dl>
+                        <dl class="fl">
+                            <dt>完成付款</dt>
+                            <dd><span>3</span><i></i></dd>
+                        </dl>
+                    </div>
+
+                    <div class="order-site">
+                        <p class="title">选择收货地址</p>
+                        <div class="sitebox">
+                            <h3>汇元网科技</h3>
+                            <p>北京市海淀区中关村SOHO16层</p>
+                        </div>
+                    </div>
+
+                    <div class="order-msg">
+                        <p class="title">确认订单信息</p>
+                        <div class="order-list">
+                            <ul class="order-list-title">
+                                <li style="width:360px;">商品名</li>
+                                <li style="width:120px;">商品属性</li>
+                                <li style="width:120px;">单价</li>
+                                <li style="width:255px;">数量</li>
+                                <li style="width:50px;">小计</li>						
+                            </ul>
+                            <ul class="order-list-con">
+                                <li style="width:360px;">
+                                    <div class="fl picbox">
+                                        <img src="__PUBLIC__/hynet/images/tiyandemo.png" alt="十周年T恤">
+                                    </div>
+                                    <h3 id="hyName"></h3>
+                                </li>
+                                <li id="hyColor" style="width:120px;"></li>                                    
+                                <li id="hyPrice" style="width:120px;"></li>
+                                <li style="width:255px;">
+                                    <dl class="number-box">
+                                        <dd class="fl number-input "><input type="text" id="hyNum" maxlength="6" value="1" onchange="getTotalPrice()"></dd>
+                                        <dd class="fl number-btn">
+                                            <p class="minus">-</p>
+                                            <p class="plus">+</p>
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li id="hySumPrice" style="width:50px;"></li>   						
+                            </ul>
+                        </div>
+                        <div class="fr btnbox">
+                            <p class="fl">实付金额： <span id="hyPayPrice"></span>  元</p>
+                            <a onclick="getPay()" class="fl btn btn_blue">立即购买</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="w">
+                <p>&copy; 2008  汇元银通（北京）在线支付技术有限公司，保留所有权利</p>
+                <span>京ICP备09070617号-3</span>
+            </div>
+        </div>  
+        
+        <script>
+            $(function () {               
+                $("#hyName").text(sessionStorage["hyName"]);               
+                $("#hyColor").text(sessionStorage["hyColor"]);   
+                
+                var hyPrice=sessionStorage["hyPrice"];
+                $("#hyPrice").text(hyPrice);                
+                                         
+                var hyNum=sessionStorage["hyNum"];               
+                $("#hyNum").val(hyNum);                
+                
+                $("#hySumPrice").text(hyPrice*hyNum);                     
+                $("#hyPayPrice").text(hyPrice*hyNum);    
+                numberbox();
+            })
+            
+            function getTotalPrice(){
+                var hyPrice=sessionStorage["hyPrice"];
+                $("#hyPrice").text(hyPrice);                
+                                         
+                var hyNum=$("#hyNum").val();              
+             
+                $("#hySumPrice").text(hyPrice*hyNum);                     
+                $("#hyPayPrice").text(hyPrice*hyNum);  
+                sessionStorage["hyNum"] = hyNum;
+            }
+
+            function getPay(){
+                sessionStorage["hyNum"] = $("#hyNum").val(); 
+                var hySumPrice=$("#hySumPrice").text();
+                var hyPayPrice=$("#hyPayPrice").text();
+                if(hySumPrice=="0.00" || hyPayPrice=="0.00"){
+                    alert("请选择数量!");
+                    return false;
+                }  
+                sessionStorage["hyPayPrice"] = hyPayPrice; 
+                location.href="order_pay.html";               
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta content="telephone=no" name="format-detection">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>体验中心</title>
+        <link rel="stylesheet" href="../styles/header.css">
+        <link rel="stylesheet" href="../styles/experience.css">
+        <script src="../scripts/index.js"></script>
+        <script src="../scripts/jquery-3.1.1.min.js"></script>
+
+    </head>
+    <body>
+        <!-- header begin -->
+        <div class="header">
+            <div class="w">
+                <a href=""><h1 class="logo"><img src="../../images/heepay.png"></h1></a>
+                <ul>
+                    <li ><a href="/#/" class="index ">首页</a></li>
+                    <li ><a href="/#/readme" class="doc">开发文档</a></li>
+                    <li ><a href="/pages/experience.html" class="demo active">体验中心</a></li>
+                    <li ><a href="" class="resourceCenter">资源中心</a></li>
+                    <li ><a href="" class="problem">常见问题</a></li>
+                </ul>
+                <!-- 手机下菜单按钮-->
+                <div class="men-sidebar" id="menSide" onclick="showMenu()">
+                    <div class="men-sidebar-button"><span></span><span></span><span></span></div>
+                    <!--按钮推拉 -->
+                    <div class="men-sidebar-box" id="menSidebarBox">
+                        <a href="/#/" class="index active">首页</a>
+                        <a href="/#/readme" class="doc">开发文档</a>
+                        <a href="" class="demo">体验中心</a>
+                        <a href="" class="resourceCenter">资源中心</a>
+                        <a href="" class="problem">常见问题</a>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <!-- header end -->
+        <div class="centre">
+            <div class="w">
+                <!-- 标题 -->
+                <div class="headline">
+                    <a href="experience.html" class="fl">返回</a><p class="fl">PC网页支付体验</p>
+                </div>
+                <div class="orderform">
+                    <div class="fl order-pic">
+                        <img src="../images/tiyandemo.png" alt="十周年T恤">
+                        <p>DEMO 体验物品</p>
+                    </div>
+                    <div class="fr order-text">
+                        <h3 id="hyName">汇元网10周年纪念T恤-测试商品不发货</h3>
+                        <div class="order-price">
+                            <p class="fl price"><span id="hyPrice">0.01</span>元</p>
+                            <p class="fl remind">（此物品仅为DEMO体验支付流程，非真实购买）</p>
+                        </div>
+                        <dl class="color-box">
+                            <dt class="fl">颜色：</dt>
+                            <dd id="black" class="fl active">黑色</dd>                            
+                        </dl>
+                        <dl class="number-box">
+                            <dt class="fl">数量：</dt>
+                            <dd class="fl number-input "><input type="text" id="hyNum" value="1"></dd>
+                            <dd class="fl number-btn">
+                                <p class="minus">-</p>
+                                <p class="plus">+</p>
+                            </dd>
+                        </dl>
+                        <a onclick="getPay()" class="btn btn_blue">立即购买</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="foot">
+            <div class="w">
+                <p>&copy; 2008  汇元银通（北京）在线支付技术有限公司，保留所有权利</p>
+                <span>京ICP备09070617号-3</span>
+            </div>
+        </div>  
+        <script>
+            $(function () {
+                $(".color-box dd").click(function () {
+                    $(this).addClass("active").siblings().removeClass("active");
+                });       
+                var hyNum=sessionStorage["hyNum"]; 
+                if(hyNum>1){
+                 $("#hyNum").val(hyNum);   
+                }  
+                numberbox();
+            })
+
+            function getPay(){
+                sessionStorage["hyName"] = $("#hyName").text();                
+                sessionStorage["hyPrice"] = $("#hyPrice").text();
+                sessionStorage["hyColor"] = $("dd.active").text();
+               
+                var hyNum=$("#hyNum").val();
+                if(hyNum=="0"){
+                    alert("请选择数量!");
+                    return false;
+                }               
+                sessionStorage["hyNum"] = hyNum;                            
+                
+                location.href="order_submit.html";               
+            }
+        </script>
+    </body>
+</html>

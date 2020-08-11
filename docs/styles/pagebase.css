@@ -1,0 +1,22 @@
+/* 常规页面样式 */
+
+/* 页面body */
+div#hybody {
+  background: none;
+}
+
+/* 覆盖主体 */
+section.cover.show {
+  padding: 0;
+  margin: 0;
+  align-items: stretch;
+}
+section.cover.show > div.cover-main {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+section + main {
+  color: red;
+}
